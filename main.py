@@ -4,23 +4,25 @@ import time
 
 x=0
 y=0
-coordinates= [(x,y),(x-20,y),(x-40,y)]
+
 
 screen1=tu.Screen()
+screen1.tracer(0)
+screen1.listen()
+
+snake1=snake.Snake()
+
+screen1.onkey(snake1.move_up,"Up")
+
 
 game_is_on=True
 
-for x in coordinates:
-    piece=snake.Snake(x)
-
 while game_is_on==True:
     screen1.update()
-    time.sleep(0.1)
-    piece.move()
-
-
-
-
+    time.sleep(0.5)
+    # print(snake1.list[0].xcor(),snake1.list[0].ycor())
+    snake1.move()
+    # snake1.move_up()
 
 
 screen1.exitonclick()
