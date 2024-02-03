@@ -1,0 +1,15 @@
+    def move(self):
+        self.list[0].forward(20)
+        # print (self.list[1],self.list[2])
+        # print (len(self.list))
+        for x in range(1,len(self.list)):
+            goto_x= self.list[x-1].xcor()-20
+            goto_y=self.list[x-1].ycor()
+            # print ("x",goto_x, goto_y)
+            self.list[x].goto(goto_x,goto_y)
+            # print (x)
+
+ JH: THE ABOVE WILL ONLY WORK WHEN MOVING IN A HORIZONTAL SPACE
+ LEFT TO RIGHT.
+ -- WILL NOT CORRECTLY WORK IF GOING UP, DOWN ETC.
+ --1ST PROBL: WHEN CHASING THE FIRST PIECE
