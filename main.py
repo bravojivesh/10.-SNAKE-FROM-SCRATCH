@@ -26,19 +26,24 @@ game_is_on=True
 
 while game_is_on==True:
     screen1.update()
-    time.sleep(0.5)
+    time.sleep(0.2)
     # print(snake1.list[0].xcor(),snake1.list[0].ycor())
     snake1.move()
 
-    print(snake1.list[0].xcor(),food1.xcor )
-    print(abs((snake1.list[0].xcor) - (food1.xcor)))
+    # x_diff= abs(abs(snake1.list[0].xcor()) - abs(food1.xcor)) #tracking xcor difference of the food and snake
+    # y_diff=abs(abs(snake1.list[0].ycor()) - abs(food1.ycor)) #tracking ycor difference of the food and snake
+    #
+    # print(f"snake x is: {abs(snake1.list[0].xcor())} and snake y is:{abs(snake1.list[0].ycor())}")
+    # print (f"food x is: {abs(food1.xcor)} and food y is {abs(food1.ycor)} ")
 
-    if (abs(snake1.list[0].xcor()- food1.xcor))<= 5:
+    if (snake1.list[0].distance(food1.foodx) < 30): #detect collision with the food
         print ("asdasdas")
-        game_is_on=False
+        snake1.after_food()
+        food1.reset()
 
-
-
-
+    for x in snake1.list:
+        if snake1.list[0].distance(snake1.list[x]) <20:
+            game_is_on= False
+  
 
 screen1.exitonclick()

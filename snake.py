@@ -10,7 +10,7 @@ class Snake():
         self.list=[]
         self.starting_pieces()
 
-    def create_pieces(self):
+    def create_piece(self):
         tu1 = tu.Turtle()
         tu1.shape("square")
         tu1.color("blue")
@@ -19,7 +19,7 @@ class Snake():
 
     def starting_pieces(self):
         for cords in coordinates:
-            tu2=self.create_pieces()
+            tu2=self.create_piece()
             tu2.goto(cords)
             self.list.append(tu2)
 
@@ -41,12 +41,10 @@ class Snake():
         # the even and odd indexes shared a pattern. See the picture in the project.
 
 
-    def return_cords(self):
-        pass
     def after_food(self):
         x=self.list[-1].xcor()
         y=self.list[-1].ycor()
-        tu3=self.create_pieces()
+        tu3=self.create_piece()
         tu3.goto(x,y)
         self.list.append(tu3)
 
