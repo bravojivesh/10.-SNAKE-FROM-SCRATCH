@@ -26,7 +26,7 @@ game_is_on=True
 
 while game_is_on==True:
     screen1.update()
-    time.sleep(0.2)
+    time.sleep(0.1)
     # print(snake1.list[0].xcor(),snake1.list[0].ycor())
     snake1.move()
 
@@ -41,8 +41,11 @@ while game_is_on==True:
         snake1.after_food()
         food1.reset()
 
-    for x in snake1.list:
-        if snake1.list[0].distance(snake1.list[x]) <20:
+    for snake_object in snake1.list: #detect collision with its own body
+        if snake_object== snake1.list[0]:
+            pass
+        elif snake_object.distance(snake1.list[0]) <10:
+            print ("121212")
             game_is_on= False
   
 
