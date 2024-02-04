@@ -24,7 +24,8 @@ class Snake():
             self.list.append(tu2)
 
     def move(self):
-        for x in range(0,len(self.list)):
+        for x in range(0,len(self.list)): #Angela did it differently by moving the last piece first.
+            # I am focused on the first piece first, and the second and so on.
             if x== 0:
                 curr_x = self.list[x].xcor()
                 curr_y = self.list[x].ycor()
